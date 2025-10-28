@@ -1,0 +1,103 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900&display=swap');
+
+* {
+   padding: 0px;
+   margin: 0px;
+   border: 0px;
+   letter-spacing: inherit;
+}
+
+*,
+*:before,
+*:after {
+   box-sizing: border-box;
+}
+
+:focus,
+:active {
+   // outline: none;
+}
+
+cite {
+   font-style: normal;
+}
+
+a:focus,
+a:active {
+   outline: none;
+}
+
+html {
+   scroll-behavior: smooth;
+}
+
+html,
+body {
+   height: 100%;
+   min-width: $minWidth + px;
+}
+
+body {
+   background-color: $background;
+   color: $foreground;
+   font-family: $fontFamily;
+   @include adaptiveValue("font-size", 20, 15);
+   transition: all 0.3s ease 0s;
+   letter-spacing: -0.02em;
+   -ms-text-size-adjust: 100%;
+   -moz-text-size-adjust: 100%;
+   -webkit-text-size-adjust: 100%;
+   -webkit-font-smoothing: antialiased;
+   -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+   font-family: $fontFamily;
+   font-size: inherit;
+}
+
+button {
+   cursor: pointer;
+   color: inherit;
+   background-color: inherit;
+   transition: all 0.3s ease;
+}
+
+a {
+   color: inherit;
+   transition: all 0.3s ease;
+}
+
+a:link,
+a:visited {
+   text-decoration: none;
+}
+
+a:hover {
+   text-decoration: none;
+}
+
+ul,
+ol {
+   list-style: none;
+}
+
+img {
+   vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+   font-weight: inherit;
+   font-size: inherit;
+   letter-spacing: inherit;
+}
