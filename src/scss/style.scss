@@ -67,7 +67,6 @@ body {
     @if ($maxWidthContainer>0) {
       max-width: rem($maxWidthContainer);
       box-sizing: content-box;
-      margin: 0 auto;
     }
 
     @if ($containerPadding>0) {
@@ -117,6 +116,7 @@ body {
   font-size: 16px;
 
   .header__container {
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -217,6 +217,126 @@ body {
 
 .rotate-180 {
   transform: rotate(180deg);
+}
+
+.header-buttom {
+  /* section */
+  height: 700px;
+  /* Автолейаут */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: -160;
+  padding: 0px 0px 0px 80px;
+
+  .header-buttom__container {
+    margin: 0 auto;
+    /* Content */
+    width: 760px;
+    height: 542px;
+    /* Автолейаут */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 64px;
+    padding: 160px 0px 80px 0px;
+
+    .header-buttom__content {
+      /* Section Text */
+      width: 760px;
+      height: 182px;
+      /* Автолейаут */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      gap: 48px;
+
+      .header-buttom__title {
+        color: rgba(33, 39, 42, 1);
+
+        font-family: Roboto;
+        font-size: 54px;
+        font-weight: 700;
+        line-height: 110%;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+      .header-buttom__description {
+        color: rgba(33, 39, 42, 1);
+
+        font-family: Roboto;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 140%;
+        letter-spacing: 0%;
+        text-align: left;
+      }
+    }
+  }
+
+  .header-buttom__image {
+    background-image: url("../img/back.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 700px;
+    margin: 0 auto;
+  }
+
+  .header-buttom__buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    .header-buttom__button-1 {
+      color: rgba(255, 255, 255, 1);
+
+      font-family: Roboto;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0.5px;
+      text-align: left;
+      /* button */
+      width: 204px;
+      height: 56px;
+      /* Автолейаут */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+
+      box-sizing: border-box;
+      border: 2px solid rgba(15, 98, 254, 1);
+      background: rgba(15, 98, 254, 1);
+    }
+
+    .header-buttom__button-2 {
+      color: rgba(15, 98, 254, 1);
+
+      font-family: Roboto;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0.5px;
+      text-align: left;
+      /* button */
+      width: 230px;
+      height: 56px;
+      /* Автолейаут */
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+
+      box-sizing: border-box;
+      border: 2px solid rgba(15, 98, 254, 1);
+    }
+  }
 }
 
 .footer {
