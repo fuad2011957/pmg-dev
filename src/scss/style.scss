@@ -1,60 +1,56 @@
-@use 'sass:math';
-@use 'base/mixins' as *;
-@use 'base/variables' as *;
-@use 'sass:color';
+@use "sass:math";
+@use "base/mixins" as *;
+@use "base/variables" as *;
+@use "sass:color";
 
-@use 'base';
-@use 'bem';
-@use 'fonts/my-fonts';
+@use "base";
+@use "bem";
+@use "fonts/my-fonts";
 
 // Pages
-@use 'project/pages/home';
+@use "project/pages/home";
 
 // Sections
-
 
 // Подключение шрифтов ===========================================================================================================================================================================================================================================================================
 //&display=swap - добавить при подключении через плагин
 
 // Обнуление ============================================================================================================================================================================================== =============================================================================================== ===============================================================================================
-@forward 'base/null';
+@forward "base/null";
 
 // Стили тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
 
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
-
-
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
+  // Скролл заблокирован
+  .lock & {
+    overflow: hidden;
+    touch-action: none;
+    overscroll-behavior: none;
+  }
 
-   // Скролл заблокирован
-   .lock & {
-      overflow: hidden;
-      touch-action: none;
-      overscroll-behavior: none;
-   }
-
-   // Сайт загружен
-   .loaded & {}
+  // Сайт загружен
+  .loaded & {
+  }
 }
 
 // Оболочка wrapper ============================================================================================================================================================================================================================================================================================================================================================================================================================================
 .wrapper {
-   min-height: 100%;
-   display: flex;
-   flex-direction: column;
-   overflow-x: clip;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: clip;
 
-   // Прижимаем footer
-   >main {
-      flex: 1 1 auto;
-   }
+  // Прижимаем footer
+  > main {
+    flex: 1 1 auto;
+  }
 
-   // Фикс для слайдеров
-   >* {
-      min-width: 0;
-   }
+  // Фикс для слайдеров
+  > * {
+    min-width: 0;
+  }
 }
 
 // Ограничивающий контейнер ======================================================================================================================================================================================================================
@@ -66,214 +62,189 @@ body {
 Снипет (HTML): cnt
 */
 @if ($responsiveType==1) {
-
-   // Отзывчивая
-   [class*='__container'] {
-      @if ($maxWidthContainer>0) {
-         max-width: rem($maxWidthContainer);
-         box-sizing: content-box;
-         margin: 0 auto;
-      }
-
-      @if ($containerPadding>0) {
-         padding: 0 rem(math.div($containerPadding, 2));
-      }
-   }
-}
-
-@else {
-
-   // По брейк-поинтам
-   [class*='__container'] {
+  // Отзывчивая
+  [class*="__container"] {
+    @if ($maxWidthContainer>0) {
+      max-width: rem($maxWidthContainer);
+      box-sizing: content-box;
       margin: 0 auto;
+    }
 
-      @if ($maxWidthContainer>0) {
-         max-width: rem($maxWidthContainer);
-         box-sizing: content-box;
+    @if ($containerPadding>0) {
+      padding: 0 rem(math.div($containerPadding, 2));
+    }
+  }
+} @else {
+  // По брейк-поинтам
+  [class*="__container"] {
+    margin: 0 auto;
+
+    @if ($maxWidthContainer>0) {
+      max-width: rem($maxWidthContainer);
+      box-sizing: content-box;
+    } @else {
+      @if ($containerPadding>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
       }
+    }
 
-      @else {
-         @if ($containerPadding>0) {
-            padding: 0 rem(math.div($containerPadding, 2));
-         }
+    @media (max-width: $pc) {
+      max-width: rem(970);
+    }
+
+    @media (max-width: $tablet) {
+      max-width: rem(750);
+    }
+
+    @media (max-width: $mobile) {
+      max-width: none;
+
+      @if ($containerPadding>0 and $maxWidthContainer>0) {
+        padding: 0 rem(math.div($containerPadding, 2));
       }
-
-      @media (max-width: $pc) {
-         max-width: rem(970);
-      }
-
-      @media (max-width: $tablet) {
-         max-width: rem(750);
-      }
-
-      @media (max-width: $mobile) {
-         max-width: none;
-
-         @if ($containerPadding>0 and $maxWidthContainer>0) {
-            padding: 0 rem(math.div($containerPadding, 2));
-         }
-      }
-   }
+    }
+  }
 }
-
 
 .header {
-   height: 80px;
-   background-color: #697077;
-   padding-left: 80px;
-   padding-right: 80px;
-   padding: 16px;
-   color: #fff;
-   font-family: "Roboto", sans-serif;
-   font-size: 16px;
+  height: 80px;
+  background-color: #697077;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding: 16px;
+  color: #fff;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
 
-   .header__container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-   }
-   .header__logo {
+  .header__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .header__logo {
     img {
       width: 100%;
       height: 100%;
       object-fit: contain;
     }
-   }
-   .header__menu {
-      font-size: 16px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      font-weight: 400;
-    .header__menu-list{
+  }
+  .header__menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    color: rgba(255, 255, 255, 1);
+
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-align: left;
+
+    .header__menu-list {
       display: flex;
       gap: 16px;
-      
-      .header__menu-link{
-         display: flex;
-         align-items: center;
-         gap: 10px;
+
+      .header__menu-link {
+        display: flex;
+        align-items: center;
+        gap: 10px;
       }
-      .header__menu-item{
-         padding: 16px;
-         position: relative;
+      .header__menu-item {
+        padding: 16px;
+        position: relative;
       }
     }
-    .header__button{
-      background-color: #0F62FE;
+    .header__button {
+      background-color: #0f62fe;
       width: 149px;
       height: 48px;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: var(--Default/White, rgba(255, 255, 255, 1));
 
+      font-family: Roboto;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 100%;
+      letter-spacing: 0.5px;
+      text-align: left;
     }
-   }
+  }
 }
 
-.header__menu-dropdown-list1{
-   display: none;
-   position: absolute;
-   left: 0;
-   top: 125%;
-   width: 100%;
-   background-color: #fff;
-   color: #000;
-   padding: 16px;
-   border-radius: 8px;
-   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-   z-index: 1000;
-   transition: all 0.3s ease;
+.header__menu-dropdown-list1 {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 125%;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
-.header__menu-dropdown-list1.active{
-   display: block;
+.header__menu-dropdown-list1.active {
+  display: block;
 }
-.header__menu-dropdown-list2{
-   display: none;
-   top: 125%;
-   position: absolute;
-   left: 0;
-   width: 100%;
-   background-color: #fff;
-   color: #000;
-   padding: 16px;
-   border-radius: 8px;
-   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
-   z-index: 1000;
-   transition: all 0.3s ease;
+.header__menu-dropdown-list2 {
+  display: none;
+  top: 125%;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
-.header__menu-dropdown-list2.active{
-   display: block;
+.header__menu-dropdown-list2.active {
+  display: block;
 }
 
 .header__menu-arrow-1,
-.header__menu-arrow-2{
-   transition: all 0.3s ease;
+.header__menu-arrow-2 {
+  transition: all 0.3s ease;
 }
 
-.rotate-180{
-   transform: rotate(180deg);
+.rotate-180 {
+  transform: rotate(180deg);
 }
 
-.footer{
-   width: 100%;
-   background:#697077;
-   padding-top: 48px;
-   padding-left: 80px;
-   padding-right: 80px;
-   padding-bottom: 24px;
-   height: 357px;
-   .footer__top{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-   }
-   .footer__top--content{
-      display: flex;
-      gap: 160px;
-   }
-
+.footer {
+  width: 100%;
+  background: #697077;
+  padding-top: 48px;
+  padding-left: 80px;
+  padding-right: 80px;
+  padding-bottom: 24px;
+  height: 357px;
+  .footer__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer__top--content {
+    display: flex;
+    gap: 160px;
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 @keyframes dropdown-animation-open {
-   0% {
-      opacity: 0;
-      transform: translateY(-20px);
-   }
-   100% {
-      opacity: 1;
-      transform: translateY(0);
-   }
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
