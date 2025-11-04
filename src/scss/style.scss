@@ -161,3 +161,19 @@ body {
     }
    }
 }
+
+.footer{
+   width: 100%;
+   background:#697077;
+   padding-top: 48px;
+   padding-left: 80px;
+   padding-right: 80px;
+   padding-bottom: 24px;
+   height: 357px;
+   &.footer__top{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+   }
+
+}
