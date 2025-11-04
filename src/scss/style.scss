@@ -119,10 +119,14 @@ body {
    padding-right: 80px;
    padding-bottom: 24px;
    height: 357px;
-   &.footer__top{
+   .footer__top{
       display: flex;
       justify-content: space-between;
       align-items: center;
+   }
+   .footer__top--content{
+      display: flex;
+      gap: 160px;
    }
 
 }
