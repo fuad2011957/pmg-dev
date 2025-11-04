@@ -21,6 +21,11 @@
 
 // Стили тега BODY ============================================================================================================================================================================================================================================================================================================================================================================================
 
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+
 body {
 
    // Скролл заблокирован
@@ -108,6 +113,52 @@ body {
             padding: 0 rem(math.div($containerPadding, 2));
          }
       }
+   }
+}
+
+
+.header {
+   height: 80px;
+   background-color: #697077;
+   padding-left: 80px;
+   padding-right: 80px;
+   padding: 16px;
+   color: #fff;
+   font-family: "Roboto", sans-serif;
+   font-size: 16px;
+
+   .header__container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   }
+   .header__logo {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+   }
+   .header__menu {
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-weight: 400;
+    .header__menu-list{
+      display: flex;
+      gap: 16px;
+      padding: 16px;
+    }
+    .header__button{
+      background-color: #0F62FE;
+      width: 149px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+    }
    }
 }
 
