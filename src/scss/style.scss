@@ -149,6 +149,11 @@ body {
       display: flex;
       gap: 16px;
       padding: 16px;
+      .header__menu-link{
+         display: flex;
+         align-items: center;
+         gap: 10px;
+      }
     }
     .header__button{
       background-color: #0F62FE;
